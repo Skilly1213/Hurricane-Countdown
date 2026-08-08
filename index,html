@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hurricane Countdown</title>
+</head>
+<body>
+    <div id="category">
+        <h1>No active tropical systems</h1>
+    </div>
+    <div id="stats">
+        <h1 id="pressure">Pressure:
+            <p>(Value) MB</p>
+        </h1>
+        <h1 id="wind-speed">WindSpeed:
+        <p>(Value) MPH</p>
+        </h1>
+    </div>
+    <div id="countdown">
+        <p>Landfall in:</p>
+        <h1>DD D HH D MM M SS S</h1>
+    </div>
+    <div id="Updated-bar">
+        <p>last updated: 8/6/2026 1PM ET</p>
+    </div>
+</body>
+<style>
+    body {
+        background-color: #82bcff;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: bebas neue, sans-serif;
+    }
+
+    #category, #countdown, #Updated-bar {
+        background-color: #4388d8;
+        padding: 20px;
+        margin: 10px 0;
+        width: 80%;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    #stats {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        width: 80%;
+    }
+
+    #pressure, #wind-speed {
+        display: block;
+        background-color: #649fe2;
+        flex: 1;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+
+    #pressure {
+        text-align: center;
+    }
+
+    #wind-speed {
+        text-align: center;
+    }
+
+    h1 {
+        margin: 0 0 10px 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    #Updated-bar {
+        display: block;
+        background-color: #649fe2;
+        padding: 10px;
+        margin: 10px 0;
+        width: 80%;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    #countdown h1 {
+        font-size: 60px;
+    }
+
+    #countdown p {
+        font-size: 30px;
+    }
+</style>
+<script>
+    // Initialize the countdown timer
+    const countdownElement = document.getElementById('countdown').querySelector('h1');
+    const targetDate = new Date("2026-08-06T00:00:00"); // Replace this with the actual hurricane arrival time
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+            countdownElement.textContent = "00 00 00 00";
+            return;
+        }
+
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        countdownElement.textContent = `${days.toString().padStart(2, '0')} ${hours.toString().padStart(2, '0')} ${minutes.toString().padStart(2, '0')} ${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+
+    // quick notepad //
+    // lets make the pressure values and windspeed values without using math random, instead i will change it manually.
+    setInterval(() => {
+        const pressureElement = document.getElementById('pressure').querySelector('p');
+        const windSpeedElement = document.getElementById('wind-speed').querySelector('p');
+
+        // Manually set the values here
+        const pressureValue = 0; // Example pressure value in MB
+        const windSpeedValue = 0; // Example wind speed value in MPH
+
+        pressureElement.textContent = `${pressureValue} MB`;
+        windSpeedElement.textContent = `${windSpeedValue} MPH`;
+    }, 1000);
+</script>
+</html>
