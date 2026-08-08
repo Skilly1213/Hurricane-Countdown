@@ -4,3 +4,5 @@ this was inspired by ryan hall yall's old hurricane countdown overlay from septe
 also when new updates come from the NHC i will update the website too
 
 this is also meant to be a OBS Overlay
+
+im working very hard to get it right so we may make mistakes im very sorry
