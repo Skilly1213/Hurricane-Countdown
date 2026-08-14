@@ -10,7 +10,7 @@
         <h1>Tropical Storm Lala</h1>
     </div>
     <div id="stats">
-        <h1 id="pressure">WindGusts:
+        <h1 id="pressure">Pressure:
             <p>(Value) MB</p>
         </h1>
         <h1 id="wind-speed">WindSpeed:
@@ -22,7 +22,7 @@
         <h1>DD:HH:MM:SS</h1>
     </div>
     <div id="Updated-bar">
-        <p>last updated: 8/13/2026 4:12 PM ET</p>
+        <p>last updated: 8/14/2026 5:19 AM ET</p>
     </div>
 </body>
 <style>
@@ -102,7 +102,7 @@
 <script>
     // Initialize the countdown timer
     const countdownElement = document.getElementById('countdown').querySelector('h1');
-    const targetDate = new Date("2026-08-15T20:00:00"); // Replace this with the actual hurricane arrival time
+    const targetDate = new Date("2026-08-16T14:00:00"); // Replace this with the actual hurricane arrival time
 
     function updateCountdown() {
         const now = new Date();
@@ -131,10 +131,10 @@
         const windSpeedElement = document.getElementById('wind-speed').querySelector('p');
 
         // Manually set the values here
-        const pressureValue = 69; // Example pressure value in MB
-        const windSpeedValue = 86; // Example wind speed value in MPH
+        const pressureValue = 997; // Example pressure value in MB
+        const windSpeedValue = 58; // Example wind speed value in MPH
 
-        pressureElement.textContent = `${pressureValue} MPH`;
+        pressureElement.textContent = `${pressureValue} MB`;
         windSpeedElement.textContent = `${windSpeedValue} MPH`;
     }, 1000);
 </script>
